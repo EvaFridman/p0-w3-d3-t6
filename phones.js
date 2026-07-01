@@ -6,17 +6,17 @@ const phones = [
   "12345",
 ];
 
-function formatter(phone) {
-    for (let i = 0; i < phone.length; i++) {
+function formatter(phonesList) {
+    for (let i = 0; i < phonesList.length; i++) {
     
-        const result = phone[i].replace(/\D/g, "").replace(/^.(\d{3})(\d{3})(\d{2})(\d{2})$/, (match, g1, g2, g3, g4) => {
-          return `+7 ${g1} ${g2}-${g3}-${g4}`;
+        const result = phonesList[i].replace(/\D/g, "").replace(/^.(\d{3})(\d{3})(\d{2})(\d{2})$/, (match, g1, g2, g3, g4) => {
+            return `+7 ${g1} ${g2}-${g3}-${g4}`;
         });
     
-        if (result.includes(" ")) {
-          console.log(`${phone[i]} → ${result}`);
+        if (!/^\+7 \d{3} \d{3}-\d{2}-\d{2}$/.test(result)) {
+            console.log(`${phonesList[i]} -> не похоже на телефон`);
         } else {
-          console.log(`${phone[i]} -> не похоже на телефон`);
+            console.log(`${phonesList[i]} → ${result}`);
         }
       }
 }
