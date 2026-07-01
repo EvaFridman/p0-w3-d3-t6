@@ -15,9 +15,9 @@ function formatter(phonesList) {
     
         if (!/^\+7 \d{3} \d{3}-\d{2}-\d{2}$/.test(result)) {
             console.log(`${phonesList[i]} -> не похоже на телефон`);
-        } else {
-            console.log(`${phonesList[i]} → ${result}`);
+            return;
         }
+            console.log(`${phonesList[i]} → ${result}`);
       }
 }
 
